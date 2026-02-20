@@ -1,146 +1,240 @@
 <!DOCTYPE html>
-<html lang="en">
+<html lang="en" class="scroll-smooth">
 <head>
     <meta charset="UTF-8">
     <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>Skyline Estates | Luxury Living</title>
+    <title>Honour Living | Elite Real Estate</title>
     <script src="https://cdn.tailwindcss.com"></script>
     <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link rel="preconnect" href="https://fonts.googleapis.com">
+    <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
+    <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:ital,wght@0,400;0,700;1,400&family=Manrope:wght@300;400;600&display=swap" rel="stylesheet">
     <script>
         tailwind.config = {
             theme: {
                 extend: {
+                    fontFamily: {
+                        sans: ['Manrope', 'sans-serif'],
+                        serif: ['Playfair Display', 'serif'],
+                    },
                     colors: {
-                        gold: '#d4af37',
-                        dark: '#1a1a1a',
+                        gold: {
+                            400: '#D4AF37',
+                            500: '#C5A028',
+                            600: '#B08D1E',
+                        },
+                        obsidian: '#0a0a0a',
+                        charcoal: '#121212',
+                    },
+                    animation: {
+                        'fade-in': 'fadeIn 1.5s ease-out',
+                        'slide-up': 'slideUp 1s ease-out forwards',
+                    },
+                    keyframes: {
+                        fadeIn: {
+                            '0%': { opacity: '0' },
+                            '100%': { opacity: '1' },
+                        },
+                        slideUp: {
+                            '0%': { transform: 'translateY(50px)', opacity: '0' },
+                            '100%': { transform: 'translateY(0)', opacity: '1' },
+                        }
                     }
                 }
             }
         }
     </script>
+    <style>
+        .hero-bg {
+            background-image: linear-gradient(rgba(0,0,0,0.3), rgba(0,0,0,0.6)), url('https://images.unsplash.com/photo-1600607686527-6fb886090705?q=80&w=2700&auto=format&fit=crop');
+            background-size: cover;
+            background-position: center;
+            background-attachment: fixed;
+        }
+        .luxury-card:hover .card-overlay {
+            opacity: 1;
+        }
+        .text-glow {
+            text-shadow: 0 0 20px rgba(212, 175, 55, 0.3);
+        }
+    </style>
 </head>
-<body class="bg-gray-50 text-dark font-sans">
+<body class="bg-obsidian text-gray-200 antialiased selection:bg-gold-400 selection:text-black">
 
-    <!-- Navbar -->
-    <nav class="bg-white shadow-md fixed w-full z-50">
+    <!-- Navigation -->
+    <nav class="fixed w-full z-50 bg-obsidian/90 backdrop-blur-md border-b border-white/5 transition-all duration-300" id="navbar">
         <div class="container mx-auto px-6 py-4 flex justify-between items-center">
-            <a href="#" class="text-2xl font-bold tracking-widest uppercase">Skyline<span class="text-gold">Estates</span></a>
-            <div class="hidden md:flex space-x-8">
-                <a href="#featured" class="hover:text-gold transition">Properties</a>
-                <a href="#agents" class="hover:text-gold transition">Agents</a>
-                <a href="#contact" class="hover:text-gold transition">Contact</a>
+            <a href="index.html" class="font-serif text-2xl md:text-3xl font-bold tracking-widest text-white">
+                HONOUR<span class="text-gold-400">.</span>LIVING
+            </a>
+            
+            <div class="hidden md:flex space-x-12 items-center text-sm tracking-widest uppercase font-medium">
+                <a href="index.html" class="text-white hover:text-gold-400 transition-colors duration-300">Home</a>
+                <a href="listings.html" class="text-gray-400 hover:text-gold-400 transition-colors duration-300">Collection</a>
+                <a href="about.html" class="text-gray-400 hover:text-gold-400 transition-colors duration-300">Legacy</a>
+                <a href="contact.html" class="px-6 py-2 border border-gold-400 text-gold-400 hover:bg-gold-400 hover:text-black transition-all duration-300">Private Viewing</a>
             </div>
-            <a href="#" class="bg-dark text-white px-6 py-2 rounded-full hover:bg-gold transition">List Your Home</a>
+
+            <!-- Mobile Menu Button -->
+            <button class="md:hidden text-white text-xl">
+                <i class="fas fa-bars"></i>
+            </button>
         </div>
     </nav>
 
     <!-- Hero Section -->
-    <header class="relative h-screen flex items-center justify-center bg-cover bg-center" style="background-image: url('https://images.unsplash.com/photo-1600596542815-2495db98dada?ixlib=rb-4.0.3&auto=format&fit=crop&w=1920&q=80');">
-        <div class="absolute inset-0 bg-black bg-opacity-50"></div>
-        <div class="relative z-10 text-center text-white px-4">
-            <h1 class="text-5xl md:text-7xl font-bold mb-6">Find Your Sanctuary</h1>
-            <p class="text-xl md:text-2xl mb-8 max-w-2xl mx-auto">Exclusive properties for the modern visionary.</p>
-            
-            <!-- Search Bar -->
-            <div class="bg-white p-4 rounded-lg shadow-lg max-w-4xl mx-auto flex flex-col md:flex-row gap-4">
-                <input type="text" placeholder="Location, Zip, or Address" class="flex-grow p-3 text-dark border rounded focus:outline-none focus:border-gold">
-                <select class="p-3 text-dark border rounded focus:outline-none focus:border-gold">
-                    <option>Property Type</option>
-                    <option>House</option>
-                    <option>Apartment</option>
-                    <option>Villa</option>
-                </select>
-                <button class="bg-gold text-white px-8 py-3 rounded hover:bg-yellow-600 transition font-bold">Search</button>
+    <header class="relative h-screen flex items-center justify-center hero-bg overflow-hidden">
+        <div class="absolute inset-0 bg-gradient-to-b from-transparent to-obsidian"></div>
+        
+        <div class="relative z-10 container mx-auto px-6 text-center">
+            <h2 class="text-gold-400 tracking-[0.3em] uppercase text-sm md:text-base mb-6 animate-fade-in">Curated for the Exceptional</h2>
+            <h1 class="font-serif text-5xl md:text-8xl font-medium text-white mb-8 leading-tight animate-slide-up text-glow">
+                Architecture as <br> <span class="italic text-gray-300">Art Form</span>
+            </h1>
+            <div class="flex flex-col md:flex-row justify-center gap-6 animate-slide-up" style="animation-delay: 0.3s;">
+                <a href="listings.html" class="bg-gold-400 text-black px-10 py-4 uppercase tracking-widest font-semibold hover:bg-white transition-colors duration-300">Explore Collection</a>
+                <a href="contact.html" class="border border-white/30 text-white px-10 py-4 uppercase tracking-widest font-semibold hover:border-gold-400 hover:text-gold-400 transition-colors duration-300 backdrop-blur-sm">Contact Concierge</a>
             </div>
+        </div>
+
+        <!-- Scroll Indicator -->
+        <div class="absolute bottom-10 left-1/2 -translate-x-1/2 animate-bounce">
+            <div class="w-[1px] h-20 bg-gradient-to-b from-gold-400 to-transparent mx-auto"></div>
         </div>
     </header>
 
-    <!-- Featured Properties -->
-    <section id="featured" class="py-20 container mx-auto px-6">
-        <div class="text-center mb-16">
-            <h2 class="text-4xl font-bold mb-4">Featured Residences</h2>
-            <div class="w-24 h-1 bg-gold mx-auto"></div>
-        </div>
-
-        <div class="grid grid-cols-1 md:grid-cols-3 gap-10">
-            <!-- Property 1 -->
-            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-                <div class="relative h-64">
-                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Villa" class="w-full h-full object-cover">
-                    <span class="absolute top-4 right-4 bg-gold text-white px-4 py-1 rounded-full text-sm font-bold">$4,500,000</span>
+    <!-- Featured Collection Preview -->
+    <section class="py-32 bg-obsidian relative">
+        <div class="container mx-auto px-6">
+            <div class="flex flex-col md:flex-row justify-between items-end mb-20 border-b border-white/10 pb-10">
+                <div>
+                    <h3 class="text-gold-400 tracking-[0.2em] text-sm uppercase mb-4">The Selection</h3>
+                    <h2 class="font-serif text-4xl md:text-5xl text-white">Featured Estates</h2>
                 </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">The Beverly Oasis</h3>
-                    <p class="text-gray-600 mb-4"><i class="fas fa-map-marker-alt text-gold mr-2"></i>Beverly Hills, CA</p>
-                    <div class="flex justify-between border-t pt-4 text-gray-500 text-sm">
-                        <span><i class="fas fa-bed mr-2"></i>5 Beds</span>
-                        <span><i class="fas fa-bath mr-2"></i>6 Baths</span>
-                        <span><i class="fas fa-ruler-combined mr-2"></i>4,200 sqft</span>
-                    </div>
-                </div>
+                <a href="listings.html" class="hidden md:flex items-center text-gray-400 hover:text-white transition-colors mt-6 md:mt-0 group">
+                    View Full Collection <i class="fas fa-arrow-right ml-4 transform group-hover:translate-x-2 transition-transform text-gold-400"></i>
+                </a>
             </div>
 
-            <!-- Property 2 -->
-            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-                <div class="relative h-64">
-                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Villa" class="w-full h-full object-cover">
-                    <span class="absolute top-4 right-4 bg-gold text-white px-4 py-1 rounded-full text-sm font-bold">$2,850,000</span>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Modern Glass Retreat</h3>
-                    <p class="text-gray-600 mb-4"><i class="fas fa-map-marker-alt text-gold mr-2"></i>Austin, TX</p>
-                    <div class="flex justify-between border-t pt-4 text-gray-500 text-sm">
-                        <span><i class="fas fa-bed mr-2"></i>4 Beds</span>
-                        <span><i class="fas fa-bath mr-2"></i>3.5 Baths</span>
-                        <span><i class="fas fa-ruler-combined mr-2"></i>3,100 sqft</span>
+            <!-- Horizontal Scroll / Grid -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-8 md:gap-12">
+                <!-- Card 1 -->
+                <a href="listings.html" class="group block relative h-[600px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1613490493576-7fde63acd811?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Estate" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-75 group-hover:brightness-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-gold-400 uppercase tracking-widest text-xs mb-2">Beverly Hills</p>
+                        <h3 class="font-serif text-3xl text-white mb-2">The Crown Jewel</h3>
+                        <div class="flex justify-between items-center border-t border-white/20 pt-4 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                            <span class="text-xl">$24,500,000</span>
+                            <span class="text-sm text-gray-300">12,000 sq ft</span>
+                        </div>
                     </div>
-                </div>
-            </div>
+                </a>
 
-            <!-- Property 3 -->
-            <div class="bg-white rounded-xl overflow-hidden shadow-lg hover:shadow-2xl transition duration-300">
-                <div class="relative h-64">
-                    <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Villa" class="w-full h-full object-cover">
-                    <span class="absolute top-4 right-4 bg-gold text-white px-4 py-1 rounded-full text-sm font-bold">$6,200,000</span>
-                </div>
-                <div class="p-6">
-                    <h3 class="text-xl font-bold mb-2">Waterfront Penthouse</h3>
-                    <p class="text-gray-600 mb-4"><i class="fas fa-map-marker-alt text-gold mr-2"></i>Miami, FL</p>
-                    <div class="flex justify-between border-t pt-4 text-gray-500 text-sm">
-                        <span><i class="fas fa-bed mr-2"></i>3 Beds</span>
-                        <span><i class="fas fa-bath mr-2"></i>3 Baths</span>
-                        <span><i class="fas fa-ruler-combined mr-2"></i>2,800 sqft</span>
+                <!-- Card 2 -->
+                <a href="listings.html" class="group block relative h-[600px] overflow-hidden md:-mt-16">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Estate" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-75 group-hover:brightness-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-gold-400 uppercase tracking-widest text-xs mb-2">Malibu Coast</p>
+                        <h3 class="font-serif text-3xl text-white mb-2">Oceanfront Glass</h3>
+                        <div class="flex justify-between items-center border-t border-white/20 pt-4 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                            <span class="text-xl">$18,200,000</span>
+                            <span class="text-sm text-gray-300">8,500 sq ft</span>
+                        </div>
                     </div>
-                </div>
+                </a>
+
+                <!-- Card 3 -->
+                <a href="listings.html" class="group block relative h-[600px] overflow-hidden">
+                    <img src="https://images.unsplash.com/photo-1600596542815-2495db98dada?ixlib=rb-4.0.3&auto=format&fit=crop&w=1600&q=80" alt="Estate" class="w-full h-full object-cover transition-transform duration-700 group-hover:scale-110 filter brightness-75 group-hover:brightness-100">
+                    <div class="absolute inset-0 bg-gradient-to-t from-black/90 via-black/20 to-transparent opacity-90"></div>
+                    <div class="absolute bottom-0 left-0 p-8 w-full transform translate-y-4 group-hover:translate-y-0 transition-transform duration-500">
+                        <p class="text-gold-400 uppercase tracking-widest text-xs mb-2">Aspen</p>
+                        <h3 class="font-serif text-3xl text-white mb-2">Winter Palace</h3>
+                        <div class="flex justify-between items-center border-t border-white/20 pt-4 mt-4 opacity-0 group-hover:opacity-100 transition-opacity duration-500 delay-100">
+                            <span class="text-xl">$32,000,000</span>
+                            <span class="text-sm text-gray-300">15,000 sq ft</span>
+                        </div>
+                    </div>
+                </a>
             </div>
         </div>
     </section>
 
-    <!-- Contact CTA -->
-    <section class="bg-dark text-white py-20">
-        <div class="container mx-auto px-6 text-center">
-            <h2 class="text-4xl font-bold mb-6">Ready to Find Your Dream Home?</h2>
-            <p class="text-xl text-gray-400 mb-8">Our agents are standing by to give you a private tour.</p>
-            <div class="flex justify-center gap-4">
-                <button class="bg-gold text-white px-8 py-3 rounded hover:bg-yellow-600 transition font-bold">Contact Us</button>
-                <button class="border border-white text-white px-8 py-3 rounded hover:bg-white hover:text-dark transition font-bold">View All Listings</button>
+    <!-- The Honour Difference (About) -->
+    <section class="py-32 bg-charcoal text-white relative overflow-hidden">
+        <div class="absolute top-0 right-0 w-1/3 h-full bg-gold-400/5 -skew-x-12 transform translate-x-20"></div>
+        <div class="container mx-auto px-6 relative z-10 flex flex-col md:flex-row items-center gap-16">
+            <div class="md:w-1/2">
+                <img src="https://images.unsplash.com/photo-1507003211169-0a1dd7228f2d?ixlib=rb-4.0.3&auto=format&fit=crop&w=800&q=80" alt="Founder" class="w-full grayscale hover:grayscale-0 transition-all duration-700 shadow-2xl border border-white/10">
+            </div>
+            <div class="md:w-1/2">
+                <h3 class="text-gold-400 tracking-[0.2em] text-sm uppercase mb-4">The Philosophy</h3>
+                <h2 class="font-serif text-4xl md:text-5xl mb-8 leading-tight">We Don't Sell Homes.<br>We Curate Legacies.</h2>
+                <p class="text-gray-400 mb-8 leading-relaxed font-light text-lg">
+                    At Honour Living, we understand that a home is more than structure; it is the backdrop of your life's greatest moments. Our portfolio is exclusively composed of properties that defy the ordinary.
+                </p>
+                <div class="grid grid-cols-2 gap-8 mb-10">
+                    <div>
+                        <span class="block text-3xl font-serif text-gold-400 mb-2">$2B+</span>
+                        <span class="text-xs uppercase tracking-widest text-gray-500">Lifetime Sales</span>
+                    </div>
+                    <div>
+                        <span class="block text-3xl font-serif text-gold-400 mb-2">Global</span>
+                        <span class="text-xs uppercase tracking-widest text-gray-500">Network Access</span>
+                    </div>
+                </div>
+                <a href="about.html" class="inline-block border-b border-gold-400 pb-1 text-gold-400 hover:text-white hover:border-white transition-colors">Read Our Story</a>
             </div>
         </div>
     </section>
 
     <!-- Footer -->
-    <footer class="bg-gray-900 text-gray-400 py-10 border-t border-gray-800">
-        <div class="container mx-auto px-6 flex flex-col md:flex-row justify-between items-center">
-            <div class="mb-4 md:mb-0">
-                <span class="text-2xl font-bold text-white tracking-widest uppercase">Skyline<span class="text-gold">Estates</span></span>
+    <footer class="bg-black text-white pt-20 pb-10 border-t border-white/10">
+        <div class="container mx-auto px-6">
+            <div class="grid grid-cols-1 md:grid-cols-4 gap-12 mb-16">
+                <div class="col-span-1 md:col-span-1">
+                    <a href="#" class="font-serif text-2xl font-bold tracking-widest text-white block mb-6">
+                        HONOUR<span class="text-gold-400">.</span>
+                    </a>
+                    <p class="text-gray-500 text-sm leading-relaxed">
+                        Defining the standard for luxury real estate worldwide.
+                    </p>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Discovery</h4>
+                    <ul class="space-y-4 text-sm text-gray-300">
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">New Arrivals</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Featured Estates</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Off-Market</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Company</h4>
+                    <ul class="space-y-4 text-sm text-gray-300">
+                        <li><a href="about.html" class="hover:text-gold-400 transition-colors">Our Story</a></li>
+                        <li><a href="#" class="hover:text-gold-400 transition-colors">Journal</a></li>
+                        <li><a href="contact.html" class="hover:text-gold-400 transition-colors">Careers</a></li>
+                    </ul>
+                </div>
+                <div>
+                    <h4 class="text-xs font-bold uppercase tracking-widest text-gray-400 mb-6">Connect</h4>
+                    <div class="flex space-x-6 text-gray-400">
+                        <a href="#" class="hover:text-white transition-colors"><i class="fab fa-instagram text-xl"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fab fa-linkedin text-xl"></i></a>
+                        <a href="#" class="hover:text-white transition-colors"><i class="fab fa-twitter text-xl"></i></a>
+                    </div>
+                    <p class="mt-6 text-gray-500 text-sm">concierge@honourliving.com</p>
+                </div>
             </div>
-            <div class="flex space-x-6">
-                <a href="#" class="hover:text-white"><i class="fab fa-twitter text-xl"></i></a>
-                <a href="#" class="hover:text-white"><i class="fab fa-instagram text-xl"></i></a>
-                <a href="#" class="hover:text-white"><i class="fab fa-linkedin text-xl"></i></a>
-            </div>
-            <div class="mt-4 md:mt-0 text-sm">
-                &copy; 2026 Skyline Estates. All rights reserved.
+            <div class="border-t border-white/5 pt-8 flex flex-col md:flex-row justify-between items-center text-xs text-gray-600">
+                <p>&copy; 2026 Honour Living. All rights reserved.</p>
+                <div class="flex space-x-6 mt-4 md:mt-0">
+                    <a href="#" class="hover:text-gray-400">Privacy Policy</a>
+                    <a href="#" class="hover:text-gray-400">Terms of Service</a>
+                </div>
             </div>
         </div>
     </footer>
