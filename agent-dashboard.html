@@ -1,0 +1,175 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Agent Dashboard | HonourLiving</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: '#0F172A',
+                        orange: '#F97316',
+                        teal: '#14B8A6',
+                        light: '#F8FAFC',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light text-navy antialiased flex h-screen overflow-hidden">
+
+    <!-- Sidebar -->
+    <aside class="w-64 bg-white border-r border-gray-100 hidden md:flex flex-col">
+        <div class="p-6 flex items-center space-x-2">
+            <div class=\"w-8 h-8 bg-orange rounded-lg flex items-center justify-center text-white text-sm\">
+                <i class=\"fas fa-home\"></i>
+            </div>
+            <h1 class=\"text-lg font-bold text-navy\">HONOUR<span class=\"text-orange\">LIVING</span></h1>
+        </div>
+        
+        <nav class="flex-1 px-4 space-y-2 mt-4">
+            <a href="#" class="flex items-center space-x-3 px-4 py-3 bg-orange/10 text-orange rounded-xl font-bold">
+                <i class="fas fa-th-large"></i> <span>Dashboard</span>
+            </a>
+            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-500 hover:bg-gray-50 rounded-xl font-medium transition">
+                <i class="fas fa-building"></i> <span>My Listings</span>
+            </a>
+            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-500 hover:bg-gray-50 rounded-xl font-medium transition">
+                <i class="fas fa-comment-alt"></i> <span>Messages</span> <span class="bg-red-500 text-white text-[10px] px-2 rounded-full ml-auto">3</span>
+            </a>
+            <a href="#" class="flex items-center space-x-3 px-4 py-3 text-gray-500 hover:bg-gray-50 rounded-xl font-medium transition">
+                <i class="fas fa-chart-line"></i> <span>Analytics</span>
+            </a>
+        </nav>
+
+        <div class="p-4 border-t border-gray-100">
+            <div class="flex items-center space-x-3">
+                <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=100" class="w-10 h-10 rounded-full border border-gray-200">
+                <div>
+                    <p class="text-sm font-bold text-navy">Sadril Apurba</p>
+                    <p class="text-xs text-gray-400">Agent</p>
+                </div>
+                <i class="fas fa-sign-out-alt ml-auto text-gray-400 hover:text-red-500 cursor-pointer"></i>
+            </div>
+        </div>
+    </aside>
+
+    <!-- Main Content -->
+    <main class="flex-1 flex flex-col h-screen overflow-y-auto">
+        <!-- Header -->
+        <header class="bg-white border-b border-gray-100 p-4 md:p-6 flex justify-between items-center sticky top-0 z-30">
+            <div class="md:hidden">
+                <i class="fas fa-bars text-xl text-gray-600"></i>
+            </div>
+            <h2 class="text-xl font-bold text-navy hidden md:block">Overview</h2>
+            <div class="flex space-x-4">
+                <button class="bg-gray-100 p-2 rounded-full text-gray-500 hover:text-orange relative">
+                    <i class="fas fa-bell"></i>
+                    <span class="absolute top-0 right-0 w-2 h-2 bg-red-500 rounded-full border border-white"></span>
+                </button>
+                <button class="bg-navy text-white px-4 py-2 rounded-lg text-sm font-bold shadow-md hover:bg-navy/90">
+                    <i class="fas fa-plus mr-2"></i> Create Listing
+                </button>
+            </div>
+        </header>
+
+        <div class="p-4 md:p-8">
+            <!-- Stats -->
+            <div class="grid grid-cols-1 md:grid-cols-3 gap-6 mb-8">
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <p class="text-gray-400 text-xs font-bold uppercase mb-2">Total Views</p>
+                    <h3 class="text-3xl font-bold text-navy">24.5k</h3>
+                    <p class="text-green-500 text-xs mt-2 font-bold"><i class="fas fa-arrow-up"></i> 12% vs last week</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <p class="text-gray-400 text-xs font-bold uppercase mb-2">Inquiries</p>
+                    <h3 class="text-3xl font-bold text-navy">142</h3>
+                    <p class="text-green-500 text-xs mt-2 font-bold"><i class="fas fa-arrow-up"></i> 5 new today</p>
+                </div>
+                <div class="bg-white p-6 rounded-2xl shadow-sm border border-gray-100">
+                    <p class="text-gray-400 text-xs font-bold uppercase mb-2">Properties Sold</p>
+                    <h3 class="text-3xl font-bold text-navy">12</h3>
+                    <p class="text-gray-400 text-xs mt-2">This month</p>
+                </div>
+            </div>
+
+            <!-- Content Split -->
+            <div class="grid grid-cols-1 lg:grid-cols-3 gap-8">
+                
+                <!-- Recent Activity / Messages -->
+                <div class="lg:col-span-2 bg-white rounded-2xl shadow-sm border border-gray-100 p-6">
+                    <h3 class="text-lg font-bold text-navy mb-6">Recent Inquiries</h3>
+                    <div class="space-y-6">
+                        <!-- Message Item -->
+                        <div class="flex items-start space-x-4 border-b border-gray-50 pb-4">
+                            <img src="https://randomuser.me/api/portraits/women/44.jpg" class="w-10 h-10 rounded-full">
+                            <div class="flex-1">
+                                <div class="flex justify-between mb-1">
+                                    <h4 class="font-bold text-navy text-sm">Sarah Rahman</h4>
+                                    <span class="text-xs text-gray-400">2m ago</span>
+                                </div>
+                                <p class="text-xs text-gray-500 line-clamp-1">Hi, is the Sky Dandelions apartment still available for viewing this weekend?</p>
+                                <div class="mt-2 flex space-x-2">
+                                    <button class="bg-orange text-white px-3 py-1 rounded text-xs font-bold">Reply</button>
+                                    <button class="border border-gray-200 text-gray-500 px-3 py-1 rounded text-xs font-bold">View Profile</button>
+                                </div>
+                            </div>
+                        </div>
+                         <!-- Message Item -->
+                        <div class="flex items-start space-x-4 border-b border-gray-50 pb-4">
+                            <img src="https://randomuser.me/api/portraits/men/32.jpg" class="w-10 h-10 rounded-full">
+                            <div class="flex-1">
+                                <div class="flex justify-between mb-1">
+                                    <h4 class="font-bold text-navy text-sm">Karim Ullah</h4>
+                                    <span class="text-xs text-gray-400">1h ago</span>
+                                </div>
+                                <p class="text-xs text-gray-500 line-clamp-1">Sent an offer for the Banani Villa. Please check attached documents.</p>
+                            </div>
+                        </div>
+                    </div>
+                </div>
+
+                <!-- Add Listing Quick Form -->
+                <div class="bg-navy text-white rounded-2xl shadow-lg p-6 relative overflow-hidden">
+                    <div class="absolute top-0 right-0 w-32 h-32 bg-orange rounded-full filter blur-3xl opacity-20 -mr-10 -mt-10"></div>
+                    
+                    <h3 class="text-lg font-bold mb-4 relative z-10">Quick List</h3>
+                    <form class="space-y-4 relative z-10">
+                        <div>
+                            <label class="text-xs text-gray-400 font-bold uppercase">Property Title</label>
+                            <input type="text" class="w-full bg-white/10 border border-white/10 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-orange mt-1">
+                        </div>
+                        <div class="grid grid-cols-2 gap-4">
+                            <div>
+                                <label class="text-xs text-gray-400 font-bold uppercase">Price</label>
+                                <input type="text" class="w-full bg-white/10 border border-white/10 rounded-lg px-3 py-2 text-sm focus:outline-none focus:border-orange mt-1">
+                            </div>
+                            <div>
+                                <label class="text-xs text-gray-400 font-bold uppercase">Type</label>
+                                <select class="w-full bg-white/10 border border-white/10 rounded-lg px-3 py-2 text-sm focus:outline-none mt-1 text-gray-300">
+                                    <option>Sell</option>
+                                    <option>Rent</option>
+                                </select>
+                            </div>
+                        </div>
+                        <button class="w-full bg-orange py-3 rounded-lg font-bold text-sm shadow-lg hover:bg-orange/90 transition mt-2">
+                            Continue to Details <i class="fas fa-arrow-right ml-2"></i>
+                        </button>
+                    </form>
+                </div>
+
+            </div>
+        </div>
+    </main>
+
+</body>
+</html>

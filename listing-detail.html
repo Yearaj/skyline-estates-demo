@@ -1,0 +1,165 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Sky Dandelions Apt | HonourLiving</title>
+    <script src="https://cdn.tailwindcss.com"></script>
+    <link href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css" rel="stylesheet">
+    <link href="https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600;700&display=swap" rel="stylesheet">
+    <script>
+        tailwind.config = {
+            theme: {
+                extend: {
+                    fontFamily: {
+                        sans: ['Inter', 'sans-serif'],
+                    },
+                    colors: {
+                        navy: '#0F172A',
+                        orange: '#F97316',
+                        teal: '#14B8A6',
+                        light: '#F8FAFC',
+                    }
+                }
+            }
+        }
+    </script>
+</head>
+<body class="bg-light text-navy antialiased">
+
+    <!-- Navbar -->
+    <nav class="bg-white shadow-sm fixed w-full z-50">
+        <div class="container mx-auto px-4 py-3 flex justify-between items-center">
+            <div class="flex items-center space-x-4">
+                <a href="browse.html" class="w-8 h-8 bg-gray-100 rounded-full flex items-center justify-center text-gray-600 hover:bg-orange hover:text-white transition">
+                    <i class=\"fas fa-arrow-left\"></i>
+                </a>
+                <h1 class="text-lg font-bold tracking-tight text-navy">Property Details</h1>
+            </div>
+            <div class="flex space-x-4 text-gray-400">
+                <i class="fas fa-heart cursor-pointer hover:text-red-500 transition"></i>
+                <i class="fas fa-share-alt cursor-pointer hover:text-navy transition"></i>
+            </div>
+        </div>
+    </nav>
+
+    <!-- Main Content -->
+    <main class="pt-20 pb-24 container mx-auto px-4 max-w-4xl">
+        
+        <!-- Gallery -->
+        <div class="grid grid-cols-1 md:grid-cols-2 gap-4 mb-8 rounded-2xl overflow-hidden">
+            <img src="https://images.unsplash.com/photo-1600607687939-ce8a6c25118c?w=800" class="w-full h-64 md:h-96 object-cover hover:scale-105 transition duration-500 cursor-pointer">
+            <div class="grid grid-cols-2 gap-4">
+                <img src="https://images.unsplash.com/photo-1600566752355-35792bedcfe1?w=400" class="w-full h-32 md:h-48 object-cover hover:scale-105 transition duration-500 cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1600210492486-724fe5c67fb0?w=400" class="w-full h-32 md:h-48 object-cover hover:scale-105 transition duration-500 cursor-pointer">
+                <img src="https://images.unsplash.com/photo-1600607687644-c7171b42498b?w=400" class="w-full h-32 md:h-48 object-cover hover:scale-105 transition duration-500 cursor-pointer">
+                <div class="relative cursor-pointer">
+                    <img src="https://images.unsplash.com/photo-1512917774080-9991f1c4c750?w=400" class="w-full h-32 md:h-48 object-cover filter brightness-50">
+                    <div class="absolute inset-0 flex items-center justify-center text-white font-bold text-xl">+5</div>
+                </div>
+            </div>
+        </div>
+
+        <!-- Details Header -->
+        <div class="flex flex-col md:flex-row justify-between items-start mb-6">
+            <div>
+                <div class="flex items-center space-x-2 mb-2">
+                    <span class="bg-teal/10 text-teal text-xs font-bold px-2 py-1 rounded">APARTMENT</span>
+                    <span class="text-orange text-xs font-bold"><i class="fas fa-star"></i> 4.8 (86 Reviews)</span>
+                </div>
+                <h1 class="text-3xl font-bold text-navy mb-1">Sky Dandelions Apartment</h1>
+                <p class="text-gray-500 text-sm"><i class="fas fa-map-marker-alt text-orange mr-2"></i>Gulshan 2, Road 71, Dhaka</p>
+            </div>
+            <div class="mt-4 md:mt-0 text-right">
+                <span class="text-3xl font-bold text-teal block">$450<span class="text-lg text-gray-400 font-normal">/mo</span></span>
+            </div>
+        </div>
+
+        <!-- Specs -->
+        <div class="grid grid-cols-4 gap-4 border-y border-gray-100 py-6 mb-8 text-center">
+            <div>
+                <i class="fas fa-bed text-orange text-xl mb-2"></i>
+                <p class="text-gray-500 text-xs font-bold uppercase">Bedrooms</p>
+                <p class="font-bold text-navy">3</p>
+            </div>
+            <div>
+                <i class="fas fa-bath text-orange text-xl mb-2"></i>
+                <p class="text-gray-500 text-xs font-bold uppercase">Bathrooms</p>
+                <p class="font-bold text-navy">2</p>
+            </div>
+            <div>
+                <i class="fas fa-ruler-combined text-orange text-xl mb-2"></i>
+                <p class="text-gray-500 text-xs font-bold uppercase">Square Ft</p>
+                <p class="font-bold text-navy">1,800</p>
+            </div>
+            <div>
+                <i class="fas fa-parking text-orange text-xl mb-2"></i>
+                <p class="text-gray-500 text-xs font-bold uppercase">Parking</p>
+                <p class="font-bold text-navy">2 Spots</p>
+            </div>
+        </div>
+
+        <!-- Description -->
+        <div class="mb-10">
+            <h3 class="text-xl font-bold text-navy mb-4">Description</h3>
+            <p class="text-gray-500 leading-relaxed text-sm mb-4">
+                Experience luxury living in the heart of Gulshan. This modern apartment features floor-to-ceiling windows with panoramic city views, a state-of-the-art kitchen, and access to a rooftop infinity pool. Secure building with 24/7 guard and generator backup.
+            </p>
+            <p class="text-gray-500 leading-relaxed text-sm">
+                Perfect for expats or families looking for a premium lifestyle in Dhaka's most diplomatic zone. Walking distance to Unimart and Westin.
+            </p>
+        </div>
+
+        <!-- Agent Profile -->
+        <div class="bg-white border border-gray-100 rounded-xl p-6 shadow-sm mb-10">
+            <div class="flex items-center justify-between mb-4">
+                <div class="flex items-center space-x-4">
+                    <img src="https://images.unsplash.com/photo-1560250097-0b93528c311a?w=200" class="w-12 h-12 rounded-full object-cover border-2 border-orange">
+                    <div>
+                        <h4 class="font-bold text-navy">Sadril Apurba</h4>
+                        <p class="text-xs text-gray-500">Senior Estate Agent</p>
+                    </div>
+                </div>
+                <div class="text-right">
+                    <p class="text-xs text-gray-400">Listings</p>
+                    <p class="font-bold text-navy">112 Sold</p>
+                </div>
+            </div>
+            <div class="grid grid-cols-2 gap-4">
+                <button class="bg-navy text-white py-3 rounded-lg font-bold text-sm hover:bg-navy/90 transition"><i class="fas fa-comment-alt mr-2"></i> Chat</button>
+                <button class="bg-orange text-white py-3 rounded-lg font-bold text-sm hover:bg-orange/90 transition"><i class="fas fa-phone-alt mr-2"></i> Call Now</button>
+            </div>
+        </div>
+
+        <!-- Location Map -->
+        <div class="mb-10">
+            <h3 class="text-xl font-bold text-navy mb-4">Location</h3>
+            <div class="h-64 rounded-xl overflow-hidden border border-gray-200">
+                <div id="map" class="w-full h-full"></div>
+            </div>
+        </div>
+
+        <!-- Bottom CTA -->
+        <div class="fixed bottom-0 left-0 w-full bg-white border-t p-4 z-40 md:hidden">
+            <button class="w-full bg-teal text-white py-4 rounded-xl font-bold shadow-lg hover:bg-teal/90">
+                Rent Now
+            </button>
+        </div>
+
+    </main>
+
+    <script>
+        function initMap() {
+            const loc = { lat: 23.7956, lng: 90.4210 };
+            const map = new google.maps.Map(document.getElementById("map"), {
+                zoom: 15,
+                center: loc,
+                disableDefaultUI: true
+            });
+            new google.maps.Marker({ position: loc, map: map });
+        }
+    </script>
+    <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyCj3pEm1D-AIlNg0BNephOG9gSYFQq5PYA&callback=initMap" async defer></script>
+
+</body>
+</html>
